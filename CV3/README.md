@@ -8,6 +8,12 @@
 
 using namespace std;
 
+Complex::Complex(double r, double i)
+{
+	this->real = r;
+	this->imag = i;
+}
+
 void Complex::setr(double r)
 {
 	real = r;
@@ -43,6 +49,15 @@ double Complex::faze(void)
 
 void Complex::tisk(void)
 {
+	if (imag < 0)
+	{
+		float temp;
+		temp = -1 * imag;
+		cout << "Komplexni cislo: " << real << " - " << temp << "j" << endl;
+	}
+	else {
+		cout << "Komeplxni cislo: " << real << " + " << imag << "j" << endl;
+	}
 	cout << "Modul je: " << modul() << endl;
 	cout << "Faze je: " << faze() << endl;
 }
@@ -52,9 +67,11 @@ void Complex::tisk(void)
 #pragma once
 class Complex
 {
+private:
 	double real, imag;
 
-public:
+public: 
+	Complex(double r, double i);
 	void setr(double r);
 	void seti(double i);
 	double getr();
@@ -62,8 +79,6 @@ public:
 	double modul(void);
 	double faze(void);
 	void tisk(void);
-	
-
 };
 ```
 ### Source.cpp
@@ -76,23 +91,44 @@ using namespace std;
 int main()
 {
 	double real = 0, imag = 0;
-	Complex *C = new Complex;
-	C->setr(3);
-	C->seti(4);
-	cout << "STATICKE ZADANI: Pro r = " << C->getr() << " pro i = " << C->geti() << endl;
-	C->tisk();
+	Complex cislo_stat(3, 4);
+	cislo_stat.setr(3);
+	cislo_stat.seti(4);
+	cout << "STATICKE ZADANI: Pro r = " << cislo_stat.getr() << " pro i = " << cislo_stat.geti() << endl;
+	cislo_stat.tisk();
 	system("pause");
 	system("cls");
-	cout << "Zadej realnou cast: " << endl;
-	cin >> real;
-	cout << "Zadej imaginarni cast: " << endl;
-	cin >> imag;
+	while (1)
+	{
+		cout << "Zadej realnou cast: ";
+		cin >> real;
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore();
+			cout << "Vstup bere pouze cisla!" << endl;
+			continue;
+		}
+		while(1)
+		{ 
+		cout << "Zadej imaginarni cast: ";
+		cin >> imag;
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore();
+				cout << "Vstup bere pouze cisla!" << endl;
+				continue;
+			}
+			break;
+		}
+		break;
+	}
 	system("cls");
-	C->setr(real);
-	C->seti(imag);
+	Complex* cislo_dyn = new Complex(real, imag);
+	cislo_dyn->setr(real);
+	cislo_dyn->seti(imag);
 	system("cls");
-	cout << "DYNAMICKE ZADANI: Pro r = " << C->getr() << " pro i = " << C->geti() << endl;
-	C->tisk();
+	cout << "DYNAMICKE ZADANI: Pro r = " << cislo_dyn->getr() << " pro i = " << cislo_dyn->geti() << endl;
+	cislo_dyn->tisk();
 	return 0;
 }
 ```
