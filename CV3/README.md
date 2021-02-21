@@ -13,12 +13,10 @@ Complex::Complex(double r, double i)
 	this->real = r;
 	this->imag = i;
 }
-
 void Complex::setr(double r)
 {
 	real = r;
 }
-
 void Complex::seti(double i)
 {
 	imag = i;
@@ -27,26 +25,22 @@ double Complex::getr()
 {
 	return real;
 }
-
 double Complex::geti()
 {
 	return imag;
 }
-
 double Complex::modul(void)
 {
 	float modul;
 	modul = sqrt(real * real + imag * imag);
 	return modul;
 }
-
 double Complex::faze(void)
 {
 	float faze;
 	faze = acos(real / sqrt(real * real + imag * imag));
 	return faze;
 }
-
 void Complex::tisk(void)
 {
 	if (imag < 0)
