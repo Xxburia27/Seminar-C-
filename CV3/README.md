@@ -1,5 +1,5 @@
 # C ++ Seminar - CV 03
-## Ukázka z třídy Complex.
+## Třída Complex
 ### .cpp soubor
 ```cpp
 void Complex::setr(double r)
@@ -41,7 +41,7 @@ void Complex::tisk(void)
 	cout << "Faze je: " << faze() << endl;
 }
 ```
-###.h soubor
+.h soubor
 ```cpp
 class Complex
 {
