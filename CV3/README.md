@@ -2,6 +2,12 @@
 ## Třída Complex
 ### .cpp soubor
 ```cpp
+#include <iostream>
+#include "Complex.h"
+#include "Math.h"
+
+using namespace std;
+
 void Complex::setr(double r)
 {
 	real = r;
@@ -43,6 +49,7 @@ void Complex::tisk(void)
 ```
 .h soubor
 ```cpp
+#pragma once
 class Complex
 {
 	double real, imag;
@@ -61,6 +68,11 @@ public:
 ```
 ### Source.cpp
 ```cpp
+#include <iostream>
+#include "Complex.h"
+
+using namespace std;
+
 int main()
 {
 	double real = 0, imag = 0;
