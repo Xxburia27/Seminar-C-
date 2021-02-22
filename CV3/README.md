@@ -45,12 +45,10 @@ void Complex::tisk(void)
 {
 	if (imag < 0)
 	{
-		float temp;
-		temp = -1 * imag;
-		cout << "Komplexni cislo: " << real << " - " << temp << "j" << endl;
+		cout << "Komplexni cislo: " << real << imag << "j" << endl;
 	}
 	else {
-		cout << "Komeplxni cislo: " << real << " + " << imag << "j" << endl;
+		cout << "Komeplxni cislo: " << real << imag << "j" << endl;
 	}
 	cout << "Modul je: " << modul() << endl;
 	cout << "Faze je: " << faze() << endl;
